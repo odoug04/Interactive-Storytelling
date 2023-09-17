@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="robots" content="noindex">
+  <title>My Computer</title>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://kit.fontawesome.com/5096ac7d98.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+  <script src="scripts/ui.js"></script>
+  <script src="scripts/logic.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <main class="desktop">
+
+      <div class="window-wrapper"> <!--ALL WINDOWS-->
+        <div class="desktop-icons">
+          <ul>
+            <li tabindex="0" class="launcher dbl" data-target="recycleBin"><img src="assets/icons/Recycle Bin (full).png" alt="Recycle Bin"><span>Recycle Bin</span></li>
+            <li tabindex="0" class="launcher dbl" data-target="fileExplorer"><img src="assets/icons/Optical Drive.png" alt="External Drive"><span>D: Jerry’s HD</span></li>
+            <li tabindex="0" class="launcher dbl" data-target="internetExplorer"><img src="assets/icons/Internet Explorer 6.png" alt="Internet Explorer Icon"><span>Internet Explorer</span></li>
+            <li tabindex="0" class="launcher dbl" data-target="outlookExpress"><img src="assets/icons/Outlook Express.png" alt="Outlook Express Icon"><span>Outlook Express</span></li>
+            <li tabindex="0" class="launcher dbl" data-target="commandPrompt"><img src="assets/icons/Command Prompt.png" alt="Command Prompt Icon"><span>Command Prompt</span></li>
+          </ul>
+        </div>
+
+
+        <section id="recycleBin" data-width='800px' data-height='600px' data-top='100px' data-left='400px' class="window resizable">
+          <div class="window-header">
+            <img src="assets/icons/Recycle Bin (full).png" alt="">
+            <span>Recycle Bin</span>
+            <div class="header-buttons">
+              <img class="minimizeBtn" src="assets/icons/Minimize.png" alt="Minimize">
+              <img src="assets/icons/Maximize.png" alt="Maximize">
+              <img class="exitBtn" src="assets/icons/Exit.png" alt="Exit">
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="toolbar">
+              <div class="topbar">
+                <ul class="btn-group">
+                  <li class="label-btn disabled"><img src="assets/icons/Back.png"></img><span>Back</span></li>
+                  <li class="label-btn disabled"><img src="assets/icons/Forward.png"></img><span>Forward</span></li>
+                  <li class="label-btn disabled"><img src="assets/icons/Up.png"></img><span>Up</span></li>
+                </ul>
+              </div>
+              <div class="lowerbar">
+                <span>Address</span>
+                <input class="address-bar" type="text" name="" value="Recycle Bin">
+                <img class="addressbar-icon" src="assets/icons/Recycle Bin (full).png"></img>
+              </div>
+            </div>
+            <div class="window-main">
+              <div class="file-grid">
+                <div tabindex="0" class="file">
+                  <img src="assets/icons/Generic Text Document.png" alt="file"></img>
+                  <span>README.txt</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="fileExplorer" data-width='800px' data-height='600px' data-top='100px' data-left='400px' class="window resizable">
+          <div class="window-header">
+            <img src="assets/icons/Optical Drive.png" alt="">
+            <span>D: Jerry’s HD</span>
+            <div class="header-buttons">
+              <img class="minimizeBtn" src="assets/icons/Minimize.png" alt="Minimize">
+              <img src="assets/icons/Maximize.png" alt="Maximize">
+              <img class="exitBtn" src="assets/icons/Exit.png" alt="Exit">
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="toolbar">
+              <div class="topbar">
+                <ul class="btn-group">
+                  <li class="label-btn disabled"><img src="assets/icons/Back.png"></img><span>Back</span></li>
+                  <li class="label-btn disabled"><img src="assets/icons/Forward.png"></img><span>Forward</span></li>
+                  <li class="label-btn" onclick="fileUp()"><img src="assets/icons/Up.png"></img><span>Up</span></li>
+                </ul>
+              </div>
+              <div class="lowerbar">
+                <span>Address</span>
+                <input id="fileAddressBar" class="address-bar" type="text" name="" value="D:\">
+                <img class="addressbar-icon" src="assets/icons/Optical Drive.png"></img>
+                <div class="label-btn-vertical">
+                  <img id="submitAddress" class="btn" src="assets/icons/Go.png" alt="">
+                  <span>Go</span>
+                </div>
+              </div>
+            </div>
+            <div class="window-main">
+              <div class="file-grid">
+                <div data-folderpath='myFiles' tabindex="0" class="folder">
+                  <img src="assets/icons/Folder Closed.png" alt="file"></img>
+                  <span>myFiles</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="internetExplorer" data-width='900px' data-height='700px' data-top='50px' data-left='200px' class="window resizable">
+          <div class="window-header">
+            <img src="assets/icons/Internet Explorer 6.png" alt="">
+            <span>Internet Explorer</span>
+            <div class="header-buttons">
+              <img class="minimizeBtn" src="assets/icons/Minimize.png" alt="Minimize">
+              <img src="assets/icons/Maximize.png" alt="Maximize">
+              <img class="exitBtn" src="assets/icons/Exit.png" alt="Exit">
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="toolbar">
+              <div class="topbar">
+                <ul class="btn-group">
+                  <li class="label-btn disabled"><img src="assets/icons/Back.png"></img><span>Back</span></li>
+                  <li class="label-btn disabled"><img src="assets/icons/Forward.png"></img><span>Forward</span></li>
+                </ul>
+                <span class="divider"></span>
+                <ul class="btn-group">
+                  <li class="label-btn"><img src="assets/icons/IE Refresh.png"></img><span>Refresh</span></li>
+                  <li class="label-btn"><img src="assets/icons/IE Home.png"></img><span>Home</span></li>
+                </ul>
+                <span class="divider"></span>
+                <ul class="btn-group">
+                  <li class="label-btn-vertical"><img src="assets/icons/Search.png"></img><span>Search</span></li>
+                  <li class="label-btn-vertical"><img src="assets/icons/Printer.png"></img><span>Print</span></li>
+                </ul>
+              </div>
+              <div class="lowerbar">
+                <input class="address-bar ie" type="text" name="" value="http://www.google.com">
+                <div class="label-btn-vertical">
+                  <img class="btn" src="assets/icons/Go.png" alt="">
+                  <span>Go</span>
+                </div>
+              </div>
+            </div>
+            <div class="window-main">
+              <iframe class="browser-iframe" src="https://oldgoogle.neocities.org/2009"></iframe>
+            </div>
+          </div>
+        </section>
+
+        <section id="outlookExpress" data-width='1100px' data-height='780px' data-top='50px' data-left='250px' data-minWidth='800' data-minHeight='600' class="window resizable">
+          <div class="window-header">
+            <img src="assets/icons/Outlook Express.png" alt="">
+            <span>Outlook Express</span>
+            <div class="header-buttons">
+              <img class="minimizeBtn" src="assets/icons/Minimize.png" alt="Minimize">
+              <img src="assets/icons/Maximize.png" alt="Maximize">
+              <img class="exitBtn" src="assets/icons/Exit.png" alt="Exit">
+            </div>
+          </div>
+          <div class="window-body cream">
+            <div class="toolbar topbar-only">
+              <div class="topbar">
+                <ul class="btn-group">
+                  <li class="label-btn"><img src="assets/icons/OE Create Mail.png"></img><span>Create Mail</span></li>
+                  <li class="label-btn"><img src="assets/icons/OE Reply.png"></img><span>Reply</span></li>
+                  <li class="label-btn"><img src="assets/icons/OE Forward.png"></img><span>Forward</span></li>
+                </ul>
+                <span class="divider"></span>
+                <ul class="btn-group">
+                  <li class="label-btn"><img src="assets/icons/Printer.png"></img><span>Print</span></li>
+                  <li class="label-btn"><img src="assets/icons/Delete.png"></img><span>Delete</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="window-main topbar-only">
+              <div class="mail-header">
+                <img src="assets/icons/OE Inbox.png" alt="Inbox Icon">
+                <h2>Inbox</h2>
+              </div>
+              <div class="mail-layout">
+                <div class="mail-folders">
+                  <div class="sidebar-header">
+                    <span>Folders</span>
+                    <img src="assets/icons/X.svg" alt="">
+                  </div>
+                  <div class="folders-content">
+                    <ul class="level-one">
+                      <li class="tree-item"><img src="assets/icons/Outlook Express.png" alt=""></img>Outlook Express</li>
+                      <img class="minus" src="assets/icons/minus.svg" alt="">
+                      <li class="branch">
+                        <ul class="level-two">
+                          <li class="tree-item"><img src="assets/icons/OE Folder List.png" alt=""></img>Local Folders</li>
+                          <li>
+                            <ul class="level-three">
+                              <li class="tree-item"><img src="assets/icons/OE Inbox.png" alt=""></img>Inbox</li>
+                              <li class="tree-item"><img src="assets/icons/OE Outbox.png" alt=""></img>Outbox</li>
+                              <li class="tree-item"><img src="assets/icons/OE Sent Items.png" alt=""></img>Sent Items</li>
+                              <li class="tree-item"><img src="assets/icons/Recycle Bin (full).png" alt=""></img>Deleted Items</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mail-contacts">
+                  <div class="sidebar-header">
+                    <span>Contacts</span>
+                    <img src="assets/icons/X.svg" alt="">
+                  </div>
+                  <div class="contacts-content">
+                    There are no contacts to display. Click on Contacts to create a new contact.
+                  </div>
+                </div>
+                <div class="mail-messages-list">
+                  <div class="messages-header">
+                    <span class="from">From</span>
+                    <span class="subject">Subject</span>
+                    <span class="recieved">Recieved</span>
+                  </div>
+                  <div data-email='#msg1' class="email" tabindex="0">
+                    <span class="from"><img src="assets/icons/Email.png" alt="">Boss</span>
+                    <span class="subject">Job Instructions</span>
+                    <span class="recieved">01/09/04 9:15 AM</span>
+                  </div>
+                  <div data-email='#msg2' class="email" tabindex="0o">
+                    <span class="from"><img src="assets/icons/Email.png" alt="">Boss</span>
+                    <span class="subject">We all gonna die</span>
+                    <span class="recieved">01/09/04 9:30 AM</span>
+                  </div>
+                </div>
+                <div class="mail-message">
+                  <div class="email-content-header">
+                    <div class="from"><span>From: </span><span id="emailFrom"></span></div>
+                    <div class="to"><span>To: </span><span id="emailTo"></span></div>
+                    <div class="subject"><span>Subject: </span><span id="emailSubject"></span></div>
+                  </div>
+                  <span class="noEmail">No Email Selected</span>
+                  <div class="emailMsg" id="msg1">
+                    Dear Jerry,</br></br>
+                    Blah blah blah, blah blah blah. Blah blah blah blah blah, blah blah.
+                    </br></br>
+                    Sincerely,</br>
+                    Boss
+                  </div>
+                  <div class="emailMsg" id="msg2">
+                    Dear Jerry,</br></br>
+                    I think we are all about to die
+                    </br></br>
+                    Sincerely,</br>
+                    Boss
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- <section id="movieMaker" data-width='1000px' data-height='800px' data-top='50px' data-left='100px' class="window resizable">
+          <div class="window-header">
+            <img src="assets/icons/Windows Movie Maker.png" alt="">
+            <span>Movie Maker</span>
+            <div class="header-buttons">
+              <img class="minimizeBtn" src="assets/icons/Minimize.png" alt="Minimize">
+              <img src="assets/icons/Maximize.png" alt="Maximize">
+              <img class="exitBtn" src="assets/icons/Exit.png" alt="Exit">
+            </div>
+          </div>
+          <div class="window-body">
+            <video id="video" width="500">
+              <source src="assets/gamefiles/webAnimationV2.mp4" type="video/mp4">
+            </video>
+            <button type="button" name="button" onclick="playvid()">Play</button>
+            <button type="button" name="button" onclick="Pausevid()">Pause</button>
+            <input id="seekSlider" type="range" name="" value="" min="0" step="0.1">
+          </div>
+        </section> -->
+
+        <section id="mediaPlayer" data-width='600px' data-height='500px' data-top='100px' data-left='200px' class="window resizable">
+          <div class="window-header">
+            <img src="assets/icons/Generic Video.png" alt="">
+            <span id="mediaPlayerLabel">Media Player</span>
+            <div class="header-buttons">
+              <img src="assets/icons/Maximize.png" alt="Maximize">
+              <img class="exitBtn" src="assets/icons/Exit.png" alt="Exit">
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="video-player">
+              <video id="mediaPlayerVid" width="500">
+                <source src="" type="video/mp4">
+                  No Media source
+              </video>
+            </div>
+            <div class="media-controls">
+              <img src="assets/icons/Play.png" onclick="playvid()" alt="Play">
+              <img src="assets/icons/Stop.png" onclick="pausevid()" alt="Stop">
+              <input id="mediaPlayerseekSlider" type="range" name="" value="" min="0" step="0.1">
+            </div>
+          </div>
+        </section>
+
+        <section id="errorWindow" data-width='360px' data-height='200px' data-minWidth='400' data-minHeight='220' data-top='400px' data-left='500px' class="window">
+          <div class="window-header">
+            <span class="noIconHeader">Error</span>
+            <div class="header-buttons">
+              <img class="exitBtn" src="assets/icons/Exit.png" alt="Exit">
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="errorLayout">
+              <img src="assets/icons/Critical.png" alt="">
+              <div id='errorMsg' class="errorMsg">
+
+              </div>
+              <button class="textBtn" type="button" name="button" onclick="closeError()">OK</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="commandPrompt" data-width='800px' data-height='550px' data-top='100px' data-left='250px' data-onfocus="initializeCmd" class="window resizable">
+          <div class="window-header">
+            <img src="assets/icons/Command Prompt.png" alt="">
+            <span>C:\WINDOWS\System32\cmd.exe</span>
+            <div class="header-buttons">
+              <img class="minimizeBtn" src="assets/icons/Minimize.png" alt="Minimize">
+              <img src="assets/icons/Maximize.png" alt="Maximize">
+              <img class="exitBtn" src="assets/icons/Exit.png" alt="Exit">
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="terminal">
+              <span class="terminal-line">Microsoft Windows XP [Version 5.1.2600]</span>
+              <span class="terminal-line">(C) Copyright 1985-2001 Microsoft Corp.</span>
+              <span class="terminal-line"></span>
+              <span class="terminal-line">C: Documents and Settings Jerry Ford>_ <span tabindex="0" contenteditable="true" class="user-line active"> </span></span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </main>
+
+    <!-- TASK BAR -->
+    <div class="taskbar">
+      <div class="main-bar">
+        <img class="start-btn" src="assets/icons/startBtn.png" alt="windows xp start button">
+        <ul class="taskbar-items">
+          <li class="launcher" data-target="fileExplorer"><img src="assets/icons/Optical Drive.png" alt="External Drive"><span>D: Jerry’s HD</span></li>
+          <li class="launcher" data-target="outlookExpress"><img src="assets/icons/Outlook Express.png" alt="Outlook Express Icon"><span>Outlook Express</span></li>
+          <li class="launcher" data-target="internetExplorer"><img src="assets/icons/Internet Explorer 6.png" alt="Internet Explorer Icon"><span>Internet Explorer</span></li>
+        </ul>
+      </div>
+      <div class="system-tray">
+        <span class="time">07/08/2004</span>
+        <span id="timeElement" class="time"></span>
+      </div>
+    </div>
+
+    <!-- START MENU -->
+    <div class="start-menu">
+      <div class="start-header">
+        <div class="profile-img">
+          <img src="assets/images/xpWallpaper.jpg" alt="profile picture">
+        </div>
+        <h3>Jerry Ford</h3>
+      </div>
+      <div class="start-content">
+        <div class="start-left-column">
+          <div class="">
+
+          </div>
+        </div>
+        <div class="start-right-column">
+
+        </div>
+      </div>
+      <div class="start-footer">
+        <div class="btn-group">
+          <img src="assets/icons/Logout.png" alt="">
+          <span>Pause</span>
+        </div>
+        <div class="btn-group">
+          <img src="assets/icons/Power.png" alt="">
+          <span>Quit Game</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+<script></script>
+</html>
